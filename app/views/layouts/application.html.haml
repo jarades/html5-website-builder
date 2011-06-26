@@ -1,0 +1,16 @@
+- ie_html :lang => 'en', :class => 'no-js' do
+  %head
+    %title html5-website-builder
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+    = csrf_meta_tags
+    %body
+  %ul.hmenu
+    = render 'shared/navigation'
+      #container
+        %header
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+        #main{:role => "main"}
+          = yield
+        %footer
