@@ -1,6 +1,6 @@
 Html5WebsiteBuilder::Application.routes.draw do
-  #get \"users\/show\"
-
+  resources :articles
+  
   root :to => "home#index"
 
   resources :users, :only => [ :show, :edit, :update ]
