@@ -7,7 +7,9 @@
       %td.two.columns= link_to 'Edit', edit_article_path(article)
       %td.two.columns= link_to 'Publish', publish_article_path(article)
       %td.two.columns= link_to 'Remove', article, :confirm => 'Are you sure?', :method => :delete
-      %td.two.columns= link_to "/website/articles/#{article.filename}.html", "/website/articles/#{article.filename}.html"
+      %td.two.columns
+        - if article.published
+          = link_to "/website/articles/#{article.filename}.html", "/website/articles/#{article.filename}.html"
 
 %br
 

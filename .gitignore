@@ -54,10 +54,6 @@ tmp/*
 # Mac finder artifacts
 .DS_Store
 
-# app specific
-public/articles/*
-
-
 # Netbeans project directory
 /nbproject/
 
@@ -69,3 +65,7 @@ public/articles/*
 
 # keep OmniAuth service provider secrets out of the Git repo
 config/initializers/omniauth.rb
+
+# app specific
+public/website/articles/*
+

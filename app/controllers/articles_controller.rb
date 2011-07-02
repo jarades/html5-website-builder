@@ -6,9 +6,9 @@ class ArticlesController < ApplicationController
     html = render_to_string(:template => "articles/template.html.haml", :layout => 'article' )
     FileUtils.makedirs("#{Rails.root}/public/website/articles/") unless File.exists?("#{Rails.root}/public/website/articles/")
     File.open("#{Rails.root}/public/website/articles/#{@article.filename}.html", 'w') {|f| f.write(html) }
-
+    @article.update_attribute(:published, true)
     respond_to do |format|
-      format.html notice: 'Article page generated successfully.'
+      format.html { redirect_to articles_path, notice: "Built a webpage for the article \"#{@article.title}\"" }
     end
 
   end
