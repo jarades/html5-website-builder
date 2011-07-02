@@ -5,4 +5,5 @@ class Article
   field :description, :type => String
   field :h1, :type => String
   field :h2, :type => String
+  key :filename
 end

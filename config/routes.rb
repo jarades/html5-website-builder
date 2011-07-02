@@ -1,5 +1,9 @@
 Html5WebsiteBuilder::Application.routes.draw do
-  resources :articles
+  resources :articles do
+    member do
+      get 'publish'
+    end
+  end
   
   root :to => "home#index"
 

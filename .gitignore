@@ -54,6 +54,10 @@ tmp/*
 # Mac finder artifacts
 .DS_Store
 
+# app specific
+public/articles/*
+
+
 # Netbeans project directory
 /nbproject/
 

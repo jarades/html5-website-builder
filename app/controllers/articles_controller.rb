@@ -1,4 +1,21 @@
 class ArticlesController < ApplicationController
+
+  # GET /articles/1
+  # GET /articles/1.json
+  def publish
+    @article = Article.find(params[:id])
+    
+    html = render_to_string(:template => "articles/template.html.haml", :layout => 'article' )
+    FileUtils.makedirs("#{Rails.root}/public/articles/") unless File.exists?("#{Rails.root}/public/articles/")
+    File.open("#{Rails.root}/public/articles/#{@article.filename}.html", 'w') {|f| f.write(html) }
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @article }
+    end
+
+  end
+
   # GET /articles
   # GET /articles.json
   def index
