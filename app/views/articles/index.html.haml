@@ -1,19 +1,13 @@
-%h1 Listing articles
+%h2 Articles
 
 %table
-  %tr
-    %th Title
-    %th Filename
-    %th
-    %th
-
   - @articles.each do |article|
     %tr
-      %td= link_to article.title, article
-      %td= article.filename
-      %td= link_to 'Edit', edit_article_path(article)
-      %td= link_to 'Publish', publish_article_path(article)
-      %td= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete
+      %td.three.columns= link_to article.title, article
+      %td.two.columns= link_to 'Edit', edit_article_path(article)
+      %td.two.columns= link_to 'Publish', publish_article_path(article)
+      %td.two.columns= link_to 'Remove', article, :confirm => 'Are you sure?', :method => :delete
+      %td.two.columns= link_to "/website/articles/#{article.filename}.html", "/website/articles/#{article.filename}.html"
 
 %br
 

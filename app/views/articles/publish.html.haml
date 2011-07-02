@@ -1,10 +1,7 @@
-%h3
-  Wrote File
-
 %p
   %b Title:
   = @article.title
 %p
-  %b Filename:
-  = @article.filename
+  %b View it here:
+  = link_to "/website/articles/#{@article.filename}.html", "/website/articles/#{@article.filename}.html"
 
