@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def publish
     @article = Article.find(params[:id])
-    @content = RedCloth.new(@article.content).to_html.html_safe
+    @article.content = RedCloth.new(@article.content).to_html.html_safe
     html = render_to_string(:template => "articles/template.html.haml", :layout => 'article' )
     FileUtils.makedirs(@file_path) unless File.exists?(@file_path)
     File.open("#{@file_path + @article.filename}.html", 'w') {|f| f.write(html) }

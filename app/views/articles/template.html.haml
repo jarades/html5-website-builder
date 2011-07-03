@@ -1,6 +1,11 @@
-%h1
+- content_for :meta do
+  %meta{:name=>'keywords', :content=>"#{@article.description}"}
+  %meta{:name=>'description', :content=>"#{@article.description}"}
+- content_for :title do
+  = @article.title
+- content_for :headline do
   = @article.h1
-%h2
+- content_for :subhead do
   = @article.h2
-
-.article= @content
+- content_for :content do
+  = @article.content
