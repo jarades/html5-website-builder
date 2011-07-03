@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   def publish
     @article = Article.find(params[:id])
-    
+    @content = RedCloth.new(@article.content).to_html.html_safe
     html = render_to_string(:template => "articles/template.html.haml", :layout => 'article' )
     FileUtils.makedirs("#{Rails.root}/public/website/articles/") unless File.exists?("#{Rails.root}/public/website/articles/")
     File.open("#{Rails.root}/public/website/articles/#{@article.filename}.html", 'w') {|f| f.write(html) }
@@ -23,7 +23,6 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
     end
