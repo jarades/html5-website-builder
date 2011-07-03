@@ -1,11 +1,13 @@
 class ArticlesController < ApplicationController
 
+  before_filter :find_path, :only => [:publish, :index, :destroy]
+
   def publish
     @article = Article.find(params[:id])
     @content = RedCloth.new(@article.content).to_html.html_safe
     html = render_to_string(:template => "articles/template.html.haml", :layout => 'article' )
-    FileUtils.makedirs("#{Rails.root}/public/website/articles/") unless File.exists?("#{Rails.root}/public/website/articles/")
-    File.open("#{Rails.root}/public/website/articles/#{@article.filename}.html", 'w') {|f| f.write(html) }
+    FileUtils.makedirs(@file_path) unless File.exists?(@file_path)
+    File.open("#{@file_path + @article.filename}.html", 'w') {|f| f.write(html) }
     @article.update_attribute(:published, true)
     respond_to do |format|
       format.html { redirect_to articles_path, notice: "Built a webpage for the article \"#{@article.title}\"" }
@@ -67,9 +69,16 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    FileUtils.remove_file("#{Rails.root}/public/website/articles/#{@article.filename}.html", force = true)
+    @settings = Setting.first
+    FileUtils.remove_file("#{@file_path + @article.filename}.html", force = true)
     respond_to do |format|
       format.html { redirect_to articles_url }
     end
   end
+  
+  protected    
+    def find_path
+      @file_path = "#{Rails.root}/public/website/#{Setting.first.articles_directory}/"
+      @url_path = "/website/#{Setting.first.articles_directory}/"
+    end
 end

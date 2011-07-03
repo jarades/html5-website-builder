@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Articles directory:
+  = @setting.articles_directory
+
+= link_to 'Edit', edit_setting_path(@setting)
+\|
+= link_to 'Back', settings_path

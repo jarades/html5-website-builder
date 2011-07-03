@@ -67,5 +67,5 @@ tmp/*
 config/initializers/omniauth.rb
 
 # app specific
-public/website/articles/*
+public/website/*
 

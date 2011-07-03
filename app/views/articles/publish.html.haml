@@ -3,5 +3,5 @@
   = @article.title
 %p
   %b View it here:
-  = link_to "/website/articles/#{@article.filename}.html", "/website/articles/#{@article.filename}.html"
+  = link_to "#{@url_path + article.filename}.html", "#{@url_path + article.filename}.html"
 

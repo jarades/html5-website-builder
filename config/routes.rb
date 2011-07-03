@@ -1,4 +1,6 @@
 Html5WebsiteBuilder::Application.routes.draw do
+  resources :settings
+
   resources :articles do
     member do
       get 'publish'
