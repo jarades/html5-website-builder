@@ -3,8 +3,8 @@ class Article
   field :title, :type => String
   field :filename, :type => String
   field :description, :type => String
-  field :h1, :type => String
-  field :h2, :type => String
+  field :headline, :type => String
+  field :subhead, :type => String
   field :content, :type => String
   field :published, :type => Boolean
   key :filename
