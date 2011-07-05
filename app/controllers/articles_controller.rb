@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
 
-  before_filter :find_path, :only => [:publish, :index, :destroy]
+  before_filter :get_settings, :only => [:publish, :index, :destroy]
 
   def publish
     @article = Article.find(params[:id])
     @article.content = RedCloth.new(@article.content).to_html.html_safe
-    html = render_to_string(:template => "articles/template.html.haml", :layout => 'article' )
+    html = render_to_string(:template => "articles/template.html.haml", :layout => false )
     FileUtils.makedirs(@file_path) unless File.exists?(@file_path)
     File.open("#{@file_path + @article.filename}.html", 'w') {|f| f.write(html) }
     @article.update_attribute(:published, true)
@@ -77,8 +77,9 @@ class ArticlesController < ApplicationController
   end
   
   protected    
-    def find_path
-      @file_path = "#{Rails.root}/public/website/#{Setting.first.articles_directory}/"
-      @url_path = "/website/#{Setting.first.articles_directory}/"
+    def get_settings
+      @settings = Setting.first
+      @file_path = "#{Rails.root}/public/website/#{@settings.articles_directory}/"
+      @url_path = "/website/#{@settings.articles_directory}/"
     end
 end

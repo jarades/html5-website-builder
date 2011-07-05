@@ -1,11 +1,29 @@
-- content_for :meta do
-  %meta{:name=>'keywords', :content=>"#{@article.description}"}
-  %meta{:name=>'description', :content=>"#{@article.description}"}
-- content_for :title do
-  = @article.title
-- content_for :headline do
-  = @article.headline
-- content_for :subhead do
-  = @article.subhead
-- content_for :content do
-  = @article.content
+- ie_html :lang => 'en', :class => 'no-js' do
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+    %meta{:name=>'keywords', :content=>"#{@article.description}"}
+    %meta{:name=>'description', :content=>"#{@article.description}"}
+    = stylesheet_link_tag :application
+    = javascript_include_tag :application
+    = csrf_meta_tags
+    %title
+      = @article.title
+    %body
+      #container.container
+        #logo.sixteen.columns
+          .sitename
+            = @settings.site_name
+          .tagline
+            = @settings.tagline
+        %hr/
+        #main{:role => "main"}
+          %article.article
+            %header.sixteen.columns
+              %hgroup
+                %h1
+                  = @article.headline
+                %h2
+                  = @article.subhead
+            = @article.content
