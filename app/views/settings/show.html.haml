@@ -1,9 +1,15 @@
-%p#notice= notice
+%p
+  %b Site Name:
+  = @setting.site_name
 
+%p
+  %b Tagline:
+  = @setting.tagline
+  
 %p
   %b Articles directory:
   = @setting.articles_directory
-
+      
 = link_to 'Edit', edit_setting_path(@setting)
 \|
 = link_to 'Back', settings_path
