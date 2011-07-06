@@ -63,6 +63,14 @@ body.articles {
           padding-bottom: 5px;
           line-height: 30px;
         }
+        ul {
+          font-family: inherit;
+          color: inherit;
+          font-size: inherit;
+          line-height: inherit;
+          margin: 0;
+          padding: 15px;
+        }
       }
     }
     

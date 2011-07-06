@@ -32,11 +32,10 @@
               Recommend This Article
             %ul
               %li
-                Share on Facebook
+                %g:plusone{:count => "medium", :size => "small"}
               %li
-                Twitter %a.twitter-share-button{"data-count" => "none", "data-via" => "#{@settings.twitter_account}", :href => "http://twitter.com/share"} Tweet
-              %li
-                Share on Google+
+                %a.twitter-share-button{"data-count" => "none", 
+                  "data-via" => "#{@settings.twitter_account}", :href => "http://twitter.com/share"}
           %section
             %h1
               Related Articles
@@ -49,3 +48,14 @@
                 three article
               %li
                 four article
+        %footer.sixteen.columns
+          #fb-root
+            %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
+          %hr/
+      -# Javascript for Facebook, Twitter, and Google+ sharing
+      %script{:type => "text/javascript",
+                  :src  => "http://connect.facebook.net/en_US/all.js#appId=176448065752391&xfbml=1"}
+      %script{:type => "text/javascript",
+                  :src  => "http://platform.twitter.com/widgets.js"}
+      %script{:type => "text/javascript",
+                  :src  => "https://apis.google.com/js/plusone.js"}
