@@ -7,7 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts 'EMPTY THE MONGODB DATABASE'
 Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
-Setting.create! :articles_directory => 'howto', :site_name => 'Rails Apps', :tagline => 'Rails 3.1 Example Apps and Tutorials'
+Setting.create! :articles_directory => 'howto',
+  :site_name => 'Rails Apps',
+  :tagline => 'Rails 3.1 Example Apps and Tutorials',
+  :twitter_account => 'rails_apps'
 puts 'Set defaults for the app'
 
 data = 
