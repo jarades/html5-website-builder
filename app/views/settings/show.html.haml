@@ -9,7 +9,11 @@
 %p
   %b Articles directory:
   = @setting.articles_directory
-      
+  
+%p
+  %b Twitter account:
+  = @setting.twitter_account
+
 = link_to 'Edit', edit_setting_path(@setting)
 \|
 = link_to 'Back', settings_path
