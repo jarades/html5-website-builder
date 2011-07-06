@@ -10,20 +10,19 @@
     = csrf_meta_tags
     %title
       = @article.title
-    %body
-      #container.container
-        #logo.sixteen.columns
+    %body.articles
+      .container
+        .logo.sixteen.columns
           .sitename
-            = @settings.site_name
+            = link_to @settings.site_name, root_url
           .tagline
             = @settings.tagline
         %hr/
-        #main{:role => "main"}
-          %article.article
-            %header.sixteen.columns
-              %hgroup
-                %h1
-                  = @article.headline
-                %h2
-                  = @article.subhead
-            = @article.content
+        %article.twelve.columns
+          %header
+            %hgroup
+              %h1
+                = @article.headline
+              %h2
+                = @article.subhead
+          = @article.content
