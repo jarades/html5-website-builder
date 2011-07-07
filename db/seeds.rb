@@ -8,6 +8,7 @@
 puts 'EMPTY THE MONGODB DATABASE'
 Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 Setting.create! :articles_directory => 'howto',
+  :domain => 'railsapps.github.com',
   :site_name => 'Rails Apps',
   :tagline => 'Rails 3.1 Example Apps and Tutorials',
   :twitter_account => 'rails_apps'
@@ -29,6 +30,7 @@ RUBY
 Article.create! :title => 'Installing Rails 3.1',
   :filename => 'installing-rails-3-1',
   :description => 'Detailed instructions on how to install Rails 3.1',
+  :keywords => 'rails, ruby, apps, application, example, tutorial, install',
   :headline => 'Read This Before Installing Rails 3.1',
   :subhead => 'What You Need to Know',
   :content => data,

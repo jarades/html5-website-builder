@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   def publish
     @article = Article.find(params[:id])
+    @permalink = "http://#{@settings.domain}/#{@settings.articles_directory}/#{@article.filename}.html"
     @article.content = RedCloth.new(@article.content).to_html.html_safe
     html = render_to_string(:template => "articles/template.html.haml", :layout => false )
     FileUtils.makedirs(@file_path) unless File.exists?(@file_path)

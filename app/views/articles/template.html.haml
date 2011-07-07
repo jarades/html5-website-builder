@@ -3,8 +3,15 @@
     %meta{:charset => "utf-8"}
     %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
-    %meta{:name=>'keywords', :content=>"#{@article.description}"}
     %meta{:name=>'description', :content=>"#{@article.description}"}
+    %meta{:name=>'keywords', :content=>"#{@article.keywords}"}
+    -# meta tags for the Open Graph protocol for Facebook
+    %meta{:property => "og:title", :content => "#{@article.title}"}
+    %meta{:property => "og:type", :content => "article"}
+    %meta{:property => "og:url", :content => "#{@permalink}"}
+    %meta{:property => "og:image", :content => ""}
+    %meta{:property => "og:description", :content => "#{@article.description}"}
+    %meta{:property => "og:site_name", :content => "#{@settings.site_name}"}
     = stylesheet_link_tag :application
     = javascript_include_tag :application
     = csrf_meta_tags
@@ -26,6 +33,8 @@
               %h2
                 = @article.subhead
           = @article.content
+          #fb-root
+            %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
         %aside.four.columns
           %section
             %h1
@@ -49,8 +58,6 @@
               %li
                 four article
         %footer.sixteen.columns
-          #fb-root
-            %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
           %hr/
       -# Javascript for Facebook, Twitter, and Google+ sharing
       %script{:type => "text/javascript",
