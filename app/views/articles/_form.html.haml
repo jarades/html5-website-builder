@@ -27,5 +27,17 @@
   .field
     = f.label :content
     = f.text_area :content
+  .field
+    = f.label :related
+  = f.fields_for :related do |b|
+    .field
+      = b.label :title
+      %br/
+      = b.text_field :title
+    .field
+      = b.label :path
+      %br/
+      = b.text_field :path
+      
   .actions
     = f.submit 'Save'

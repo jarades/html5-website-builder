@@ -35,4 +35,12 @@ Article.create! :title => 'Installing Rails 3.1',
   :subhead => 'What You Need to Know',
   :content => data,
   :published => false
-puts 'Created a sample article'
+Article.create! :title => 'Using Rails 3.1',
+  :filename => 'using-rails-3-1',
+  :description => 'Detailed instructions on how to use Rails 3.1',
+  :keywords => 'rails, ruby, apps, application, example, tutorial, install',
+  :headline => 'How to Use Rails 3.1',
+  :subhead => 'What You Need to Know',
+  :content => data,
+  :published => false
+puts 'Created sample articles'

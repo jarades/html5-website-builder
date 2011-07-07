@@ -9,4 +9,6 @@ class Article
   field :content, :type => String
   field :published, :type => Boolean
   key :filename
+  embeds_many :related
+  accepts_nested_attributes_for :related
 end

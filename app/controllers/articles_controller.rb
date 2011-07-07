@@ -33,7 +33,8 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-
+    @articles = Article.all
+    @article.related.build
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -41,6 +42,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @articles = Article.all
   end
 
   def create

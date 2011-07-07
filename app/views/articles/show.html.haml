@@ -20,6 +20,13 @@
   %b Content:
   = @article.content
 
+%p
+  %b Related Articles:
+  - @article.related.each do |item|
+    %br
+    = item.title
+
+
 = link_to 'Edit', edit_article_path(@article)
 \|
 = link_to 'Back', articles_path
