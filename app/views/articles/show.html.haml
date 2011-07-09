@@ -22,10 +22,10 @@
 
 %p
   %b Related Articles:
-  - @article.related.each do |item|
-    %br
-    = item.title
-
+  - if @article.related_items
+    - @article.related_items.each do |item|
+      %br
+      = item
 
 = link_to 'Edit', edit_article_path(@article)
 \|

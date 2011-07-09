@@ -70,6 +70,15 @@ body.articles {
           line-height: inherit;
           margin: 0;
           padding: 15px;
+          li {
+            a {
+              text-decoration: none;
+              color: #cc0000;
+            }
+            a:hover {
+              background-color: #000;
+            }
+          }
         }
       }
     }

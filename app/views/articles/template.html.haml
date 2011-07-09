@@ -49,14 +49,13 @@
             %h1
               Related Articles
             %ul
-              %li
-                one article
-              %li
-                two article
-              %li
-                three article
-              %li
-                four article
+              - if @related_items.empty?
+                %li
+                  none
+              - else
+                - @related_items.each do |title, link|
+                  %li
+                    = link_to title, link
         %footer.sixteen.columns
           %hr/
       -# Javascript for Facebook, Twitter, and Google+ sharing

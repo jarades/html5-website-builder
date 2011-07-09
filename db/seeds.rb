@@ -27,20 +27,23 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 bq. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 RUBY
 
-Article.create! :title => 'Installing Rails 3.1',
+article1 = Article.create! :title => 'Installing Rails 3.1',
   :filename => 'installing-rails-3-1',
   :description => 'Detailed instructions on how to install Rails 3.1',
   :keywords => 'rails, ruby, apps, application, example, tutorial, install',
   :headline => 'Read This Before Installing Rails 3.1',
   :subhead => 'What You Need to Know',
   :content => data,
-  :published => false
-Article.create! :title => 'Using Rails 3.1',
+  :published => false,
+  :related_items => []
+puts "Created sample article #{article1.id}"
+article2 = Article.create! :title => 'Using Rails 3.1',
   :filename => 'using-rails-3-1',
   :description => 'Detailed instructions on how to use Rails 3.1',
   :keywords => 'rails, ruby, apps, application, example, tutorial, install',
   :headline => 'How to Use Rails 3.1',
   :subhead => 'What You Need to Know',
   :content => data,
-  :published => false
-puts 'Created sample articles'
+  :published => false,
+  :related_items => [article1._id.to_s]
+puts "Created sample article #{article2.id}"

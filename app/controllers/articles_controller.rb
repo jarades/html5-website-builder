@@ -4,6 +4,13 @@ class ArticlesController < ApplicationController
 
   def publish
     @article = Article.find(params[:id])
+    @related_items = Hash.new
+    if @article.related_items
+      @article.related_items.each do |id|
+        item = Article.find(id)
+        @related_items[item.title] = "#{item.filename}.html"
+      end
+    end
     @permalink = "http://#{@settings.domain}/#{@settings.articles_directory}/#{@article.filename}.html"
     @article.content = RedCloth.new(@article.content).to_html.html_safe
     html = render_to_string(:template => "articles/template.html.haml", :layout => false )
@@ -34,7 +41,7 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     @articles = Article.all
-    @article.related.build
+    @article.related_items = []
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -47,7 +54,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params[:article])
-
     respond_to do |format|
       if @article.save
         format.html { redirect_to articles_path, notice: 'Article was successfully created.' }
@@ -59,7 +65,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-
+    params[:article][:related_items] ||= []
     respond_to do |format|
       if @article.update_attributes(params[:article])
         format.html { redirect_to articles_path, notice: 'Article was successfully updated.' }
