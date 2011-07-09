@@ -7,6 +7,7 @@ class Article
   field :headline, :type => String
   field :subhead, :type => String
   field :content, :type => String
+  field :sidebar, :type => String
   field :published, :type => Boolean
   # key :filename
   field :related_items, :type => Array

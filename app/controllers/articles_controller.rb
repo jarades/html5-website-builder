@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_filter :get_settings, :only => [:publish, :index, :destroy]
+  before_filter :get_settings, :only => [:publish, :index, :new, :destroy]
 
   def publish
     @article = Article.find(params[:id])
@@ -12,7 +12,8 @@ class ArticlesController < ApplicationController
       end
     end
     @permalink = "http://#{@settings.domain}/#{@settings.articles_directory}/#{@article.filename}.html"
-    @article.content = RedCloth.new(@article.content).to_html.html_safe
+    @content = RedCloth.new(@article.content).to_html.html_safe
+    @sidebar = RedCloth.new(@article.sidebar).to_html.html_safe if @article.sidebar
     html = render_to_string(:template => "articles/template.html.haml", :layout => false )
     FileUtils.makedirs(@file_path) unless File.exists?(@file_path)
     File.open("#{@file_path + @article.filename}.html", 'w') {|f| f.write(html) }
@@ -42,6 +43,7 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @articles = Article.all
     @article.related_items = []
+    @article.sidebar = @settings.sidebar if @settings.sidebar
     respond_to do |format|
       format.html # new.html.erb
     end

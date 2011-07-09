@@ -21,6 +21,10 @@
   = @article.content
 
 %p
+  %b Article sidebar:
+  = @article.sidebar
+    
+%p
   %b Related Articles:
   - if @article.related_items
     - @article.related_items.each do |item|

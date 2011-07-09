@@ -32,7 +32,7 @@
                 = @article.headline
               %h2
                 = @article.subhead
-          = @article.content
+          = @content
           #fb-root
             %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
         %aside.four.columns
@@ -56,6 +56,11 @@
                 - @related_items.each do |title, link|
                   %li
                     = link_to title, link
+          - unless @sidebar.blank?
+            %section
+              %hr
+              = @sidebar
+              %hr
         %footer.sixteen.columns
           %hr/
       -# Javascript for Facebook, Twitter, and Google+ sharing

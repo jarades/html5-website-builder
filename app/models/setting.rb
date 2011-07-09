@@ -5,4 +5,5 @@ class Setting
   field :site_name, :type => String
   field :tagline, :type => String
   field :twitter_account, :type => String
+  field :sidebar, :type => String
 end

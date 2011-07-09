@@ -28,6 +28,9 @@
     = f.label :content
     = f.text_area :content
   .field
+    = f.label :sidebar
+    = f.text_area :sidebar
+  .field
     = f.label :related_item
   = f.fields_for :related_item do |b|
     - Article.all.each do |item|

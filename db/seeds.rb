@@ -7,11 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts 'EMPTY THE MONGODB DATABASE'
 Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
-Setting.create! :articles_directory => 'howto',
+setting = Setting.create! :articles_directory => 'howto',
   :domain => 'railsapps.github.com',
   :site_name => 'Rails Apps',
   :tagline => 'Rails 3.1 Example Apps and Tutorials',
-  :twitter_account => 'rails_apps'
+  :twitter_account => 'rails_apps',
+  :sidebar => "h6. Colophon\n\nCreated with html5-website-builder"
 puts 'Set defaults for the app'
 
 data = 
@@ -44,6 +45,7 @@ article2 = Article.create! :title => 'Using Rails 3.1',
   :headline => 'How to Use Rails 3.1',
   :subhead => 'What You Need to Know',
   :content => data,
-  :published => false,
-  :related_items => [article1._id.to_s]
+  :sidebar => setting.sidebar,
+  :related_items => [article1._id.to_s],
+  :published => false
 puts "Created sample article #{article2.id}"
