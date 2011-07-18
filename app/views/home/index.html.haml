@@ -7,21 +7,19 @@
   %ul.square
     %li
       %strong> 
-        =link_to "Pick Your Keywords", settings_path
-      \: Provide basic information about your site.
+        =link_to "Pick Your Keywords:", settings_path
+      \ Provide basic information about your site.
     %li
-      %strong> Build a Sales Page
-      \: This is where you'll add a call to action.
+      %strong> Build a Sales Page:
+      \ This is where you'll add a call to action.
     %li
       %strong
-        =link_to "Add Articles", articles_path
-      \: Create a bridge between popular searches and your offer.
+        =link_to "Add Articles:", articles_path
+      \ Create a bridge between popular searches and your offer.
     %li
-      %strong> Build a Home Page
-      \: Wrap it all together in a nice package.
-    %li
-      %strong> Publish to the Web
-      \: Deploy to a free web host.
+      %strong> Publish to the Web:
+      \ #{link_to "View your site", "/website/index.html"},
+      \ then deploy to a free web host.
 .one-third.column
   %h3 Docs & Support
   %p blah blah
