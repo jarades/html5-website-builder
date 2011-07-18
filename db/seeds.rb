@@ -10,7 +10,10 @@ Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 setting = Setting.create! :articles_directory => 'howto',
   :domain => 'railsapps.github.com',
   :site_name => 'Rails Apps',
-  :tagline => 'Rails 3.1 Example Apps and Tutorials',
+  :site_title => 'Rails 3.1 Example Apps and Tutorials',
+  :site_tagline => 'Starter Apps for Rails 3.1',
+  :site_description => 'Examples of complete working Rails 3.1 web applications',
+  :site_keywords => 'rails, ruby, apps, application, example, tutorial',
   :twitter_account => 'rails_apps',
   :sidebar => "h6. Colophon\n\nCreated with html5-website-builder"
 puts 'Set defaults for the app'

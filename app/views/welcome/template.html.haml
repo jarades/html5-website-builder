@@ -3,20 +3,20 @@
     %meta{:charset => "utf-8"}
     %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
-    %meta{:name=>'description', :content=>"#{@article.description}"}
-    %meta{:name=>'keywords', :content=>"#{@article.keywords}"}
+    %meta{:name=>'description', :content=>"#{@settings.site_description}"}
+    %meta{:name=>'keywords', :content=>"#{@settings.site_keywords}"}
     -# meta tags for the Open Graph protocol for Facebook
-    %meta{:property => "og:title", :content => "#{@article.title}"}
+    %meta{:property => "og:title", :content => "#{@settings.site_title}"}
     %meta{:property => "og:type", :content => "article"}
     %meta{:property => "og:url", :content => "#{@permalink}"}
     %meta{:property => "og:image", :content => ""}
-    %meta{:property => "og:description", :content => "#{@article.description}"}
+    %meta{:property => "og:description", :content => "#{@settings.site_description}"}
     %meta{:property => "og:site_name", :content => "#{@settings.site_name}"}
     = stylesheet_link_tag :application
     = javascript_include_tag :application
     = csrf_meta_tags
     %title
-      = @article.title
+      = @settings.site_title
     %body.articles
       .container
         .logo.sixteen.columns
@@ -27,39 +27,33 @@
         %hr/
         %article.twelve.columns
           %header
-            %hgroup
-              %h1
-                = @article.headline
-              %h2
-                = @article.subhead
-          = @content
+            %h1
+              = @settings.site_title
+          #main{:role => "main"}
+            %ul
+              - if @articles.empty?
+                %li
+                  none
+              - else
+                - @articles.each do |article|
+                  %li
+                    = link_to article.title, root_url
           #fb-root
             %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
         %aside.four.columns
           %section
             %h1
-              Recommend This Article
+              Recommend This Site
             %ul
               %li
                 %g:plusone{:count => "medium", :size => "small"}
               %li
                 %a.twitter-share-button{"data-count" => "none", 
                   "data-via" => "#{@settings.twitter_account}", :href => "http://twitter.com/share"}
-          %section
-            %h1
-              Related Articles
-            %ul
-              - if @related_items.empty?
-                %li
-                  none
-              - else
-                - @related_items.each do |title, link|
-                  %li
-                    = link_to title, link
-          - unless @sidebar.blank?
+          - unless @welcome_sidebar.blank?
             %section
               %hr
-              = @sidebar
+              = @welcome_sidebar
               %hr
         %footer.sixteen.columns
           %hr/
