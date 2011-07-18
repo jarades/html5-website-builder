@@ -37,7 +37,7 @@
               - else
                 - @articles.each do |article|
                   %li
-                    = link_to article.title, root_url
+                    = link_to article.title, "#{@url_path + article.filename}.html"
           #fb-root
             %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
         %aside.four.columns
