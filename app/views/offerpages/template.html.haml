@@ -7,7 +7,7 @@
     %meta{:name=>'keywords', :content=>"#{@offerpage.keywords}"}
     -# meta tags for the Open Graph protocol for Facebook
     %meta{:property => "og:title", :content => "#{@offerpage.title}"}
-    %meta{:property => "og:type", :content => "article"}
+    %meta{:property => "og:type", :content => "product"}
     %meta{:property => "og:url", :content => "#{@permalink}"}
     %meta{:property => "og:image", :content => ""}
     %meta{:property => "og:description", :content => "#{@offerpage.description}"}
@@ -17,39 +17,35 @@
     = csrf_meta_tags
     %title
       = @offerpage.title
-    %body.articles
+    %body.offerpages
       .container
-        .logo.sixteen.columns
-          .sitename
-            = link_to @settings.site_name, "http://#{@settings.domain}/"
-          .tagline
-            = @settings.site_tagline
+        .recommend.sixteen.columns
+          %ul
+            %li
+              %g:plusone{:count => "medium", :size => "small"}
         %hr/
-        %article.twelve.columns
+        %section.sixteen.columns
           %header
             %hgroup
               %h1
                 = @offerpage.headline
               %h2
                 = @offerpage.subhead
-          = @content
-          #fb-root
-            %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
-        %aside.four.columns
-          %section
-            %h1
-              Recommend This
-            %ul
-              %li
-                %g:plusone{:count => "medium", :size => "small"}
-              %li
-                %a.twitter-share-button{"data-count" => "none", 
-                  "data-via" => "#{@settings.twitter_account}", :href => "http://twitter.com/share"}
-          %section
-            %h1
-              Testimonials
+          = @content_block1
+        %section.twelve.columns
+          = @content_block2
+        - if @testimonials       
+          %aside.four.columns
+            %section
+              %h1
+                Testimonials
+              = @testimonials
+        %section.sixteen.columns
+          = @offer_block
         %footer.sixteen.columns
           %hr/
+          #fb-root
+            %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
       -# Javascript for Facebook, Twitter, and Google+ sharing
       %script{:type => "text/javascript",
                   :src  => "http://connect.facebook.net/en_US/all.js#appId=176448065752391&xfbml=1"}

@@ -21,11 +21,11 @@ puts 'Set defaults for the app'
 
 data = 
 <<-RUBY
-h3. Installing the Application
+h3. Lorem Ipsum Dolor
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-h3. Getting Started
+h3. Dolor Sit Amet
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
@@ -38,7 +38,10 @@ offerpage = Offerpage.create! :title => 'Installing Rails 3.1',
   :keywords => 'ebook, rails, ruby, apps, application, example, tutorial, install',
   :headline => 'Save Time Creating Apps with Rails 3.1',
   :subhead => 'What You Need to Know',
-  :content => data,
+  :content_block1 => data,
+  :content_block2 => data,
+  :offer_block => data,
+  :testimonials => data,
   :published => false
 puts "Created offerpage #{offerpage.id}"
 

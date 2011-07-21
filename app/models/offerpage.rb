@@ -6,6 +6,9 @@ class Offerpage
   field :keywords, :type => String
   field :headline, :type => String
   field :subhead, :type => String
-  field :content, :type => String
+  field :content_block1, :type => String
+  field :content_block2, :type => String
+  field :offer_block, :type => String
+  field :testimonials, :type => String
   field :published, :type => Boolean
 end

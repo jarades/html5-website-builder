@@ -17,9 +17,18 @@
   %b Subhead:
   = @offerpage.subhead
 %p
-  %b Content:
-  = @offerpage.content
-
+  %b Content Block 1:
+  = @offerpage.content_block1
+%p
+  %b Content Block 2:
+  = @offerpage.content_block2
+%p
+  %b Offer Block:
+  = @offerpage.offer_block
+%p
+  %b Testimonials:
+  = @offerpage.testimonials
+  
 = link_to 'Edit', edit_offerpage_path(@offerpage)
 \|
 = link_to 'Back', offerpages_path
