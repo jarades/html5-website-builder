@@ -8,5 +8,6 @@ class Setting
   field :twitter_account, :type => String
   field :domain, :type => String
   field :articles_directory, :type => String
+  field :offerpages_directory, :type => String
   field :sidebar, :type => String
 end

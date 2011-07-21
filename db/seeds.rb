@@ -8,6 +8,7 @@
 puts 'EMPTY THE MONGODB DATABASE'
 Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
 setting = Setting.create! :articles_directory => 'howto',
+  :offerpages_directory => 'products',
   :domain => 'railsapps.github.com',
   :site_name => 'Rails Apps',
   :site_title => 'Rails 3.1 Example Apps and Tutorials',
@@ -30,6 +31,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 bq. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 RUBY
+
+offerpage = Offerpage.create! :title => 'Installing Rails 3.1',
+  :filename => 'ebook',
+  :description => 'Free ebook shows how to create starter apps for Rails 3.1',
+  :keywords => 'ebook, rails, ruby, apps, application, example, tutorial, install',
+  :headline => 'Save Time Creating Apps with Rails 3.1',
+  :subhead => 'What You Need to Know',
+  :content => data,
+  :published => false
+puts "Created offerpage #{offerpage.id}"
 
 article1 = Article.create! :title => 'Installing Rails 3.1',
   :filename => 'installing-rails-3-1',
