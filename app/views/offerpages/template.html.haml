@@ -28,20 +28,26 @@
           %header
             %hgroup
               %h1
-                = @offerpage.headline
+                :textile
+                  #{@offerpage.headline}
               %h2
-                = @offerpage.subhead
-          = @content_block1
+                :textile
+                  #{@offerpage.subhead}
+          :textile
+            #{@offerpage.content_block1}
         %section.twelve.columns
-          = @content_block2
-        - if @testimonials       
+          :textile
+            #{@offerpage.content_block2}
+        - if @offerpage.testimonials       
           %aside.four.columns
             %section
               %h1
                 Testimonials
-              = @testimonials
+              :textile
+                #{@offerpage.testimonials}
         %section.sixteen.columns
-          = @offer_block
+          :textile
+                #{@offerpage.offer_block}
         %footer.sixteen.columns
           %hr/
           #fb-root

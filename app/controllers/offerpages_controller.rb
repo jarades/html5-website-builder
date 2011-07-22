@@ -5,10 +5,6 @@ class OfferpagesController < ApplicationController
   def publish
     @offerpage = Offerpage.find(params[:id])
     @permalink = "http://#{@settings.domain}/#{@settings.offerpages_directory}/#{@offerpage.filename}.html"
-    @content_block1 = RedCloth.new(@offerpage.content_block1).to_html.html_safe
-    @content_block2 = RedCloth.new(@offerpage.content_block2).to_html.html_safe
-    @offer_block = RedCloth.new(@offerpage.offer_block).to_html.html_safe
-    @testimonials = RedCloth.new(@offerpage.testimonials).to_html.html_safe
     offerpage_page = render_to_string(:template => "offerpages/template.html.haml", :layout => false )
     FileUtils.makedirs(@file_path) unless File.exists?(@file_path)
     File.open("#{@file_path + @offerpage.filename}.html", 'w') {|f| f.write(offerpage_page) }
