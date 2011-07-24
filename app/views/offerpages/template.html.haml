@@ -24,30 +24,36 @@
             %li
               %g:plusone{:count => "medium", :size => "small"}
         %hr/
-        %section.sixteen.columns
-          %header
-            %hgroup
-              %h1
+        .sixteen.columns.box.clearfix
+          %section
+            %header
+              %hgroup
+                %h1
+                  :textile
+                    #{@offerpage.headline}
+                %h2
+                  :textile
+                    #{@offerpage.subhead}
+            :textile
+              #{@offerpage.content_block1}
+          - if @offerpage.testimonials
+            .row
+              %section.eleven.columns.alpha
                 :textile
-                  #{@offerpage.headline}
-              %h2
+                  #{@offerpage.content_block2}
+              %aside.five.columns.omega
+                %section
+                  %h1
+                    Testimonials
+                  :textile
+                    #{@offerpage.testimonials}
+            - else
+              %section
                 :textile
-                  #{@offerpage.subhead}
-          :textile
-            #{@offerpage.content_block1}
-        %section.twelve.columns
-          :textile
-            #{@offerpage.content_block2}
-        - if @offerpage.testimonials       
-          %aside.four.columns
-            %section
-              %h1
-                Testimonials
-              :textile
-                #{@offerpage.testimonials}
-        %section.sixteen.columns
-          :textile
-                #{@offerpage.offer_block}
+                  #{@offerpage.content_block2}
+          %section
+            :textile
+                    #{@offerpage.offer_block}
         %footer.sixteen.columns
           %hr/
           #fb-root

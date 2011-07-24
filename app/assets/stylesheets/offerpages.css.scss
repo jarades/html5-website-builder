@@ -6,6 +6,10 @@ body.offerpages {
   background: #FCEDA6 repeat-x scroll center top;
   background-image: url("/assets/bgr.jpg");
   
+  .box {
+    //padding: 40px;
+  }
+  
   .container {
     background: #fff;
     font: 14px/21px Georgia, Times, serif;
@@ -13,8 +17,8 @@ body.offerpages {
     border-top: medium none; 
     border-collapse: collapse; 
     margin-top: -4px;
-    border: "1";
-    width: "868";
+    border: 1px solid black;
+    border-top: 0;
 
     .recommend {
       margin-top:30px;
@@ -41,6 +45,8 @@ body.offerpages {
   
     section {
       
+      
+        
       p {
         text-align: left;
         font-family: Arial;
