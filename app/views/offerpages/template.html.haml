@@ -19,12 +19,12 @@
       = @offerpage.title
     %body.offerpages
       .container
-        .recommend.sixteen.columns
+        .recommend.twelve.columns.offset-by-two
           %ul
             %li
               %g:plusone{:count => "medium", :size => "small"}
         %hr/
-        .sixteen.columns.box.clearfix
+        .twelve.columns.box.clearfix.offset-by-two
           %section
             %header
               %hgroup
@@ -38,10 +38,10 @@
               #{@offerpage.content_block1}
           - if @offerpage.testimonials
             .row
-              %section.eleven.columns.alpha
+              %section.nine.columns.alpha
                 :textile
                   #{@offerpage.content_block2}
-              %aside.five.columns.omega
+              %aside.three.columns.omega
                 %section
                   %h1
                     Testimonials
@@ -54,7 +54,8 @@
           %section
             :textile
                     #{@offerpage.offer_block}
-        %footer.sixteen.columns
+        %br.clear
+        %footer.twelve.columns
           %hr/
           #fb-root
             %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
