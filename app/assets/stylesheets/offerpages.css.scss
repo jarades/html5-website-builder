@@ -16,9 +16,7 @@ body.offerpages {
     margin-top: 10px;
     margin-bottom: 10px;
     border: 1px solid black;
-    // border-top: 0;
     @include border-radius(20px);
-
 
     .recommend {
       margin-top:30px;
