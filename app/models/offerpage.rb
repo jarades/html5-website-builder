@@ -10,5 +10,6 @@ class Offerpage
   field :content_block2, :type => String
   field :offer_block, :type => String
   field :testimonials, :type => String
+  field :video, :type => String
   field :published, :type => Boolean
 end

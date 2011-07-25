@@ -26,6 +26,11 @@
         %hr/
         .twelve.columns.box.clearfix.offset-by-two
           %section
+            - if @offerpage.video
+              .video
+                %script{:type => "text/javascript",
+                        :src  => "#{@offerpage.video}"}
+                %p Press Play to Watch This Video
             %header
               %hgroup
                 %h1

@@ -43,6 +43,7 @@ body.offerpages {
   
     section {
 
+
       p {
         text-align: left;
         font-family: Arial;
@@ -97,6 +98,18 @@ body.offerpages {
           color: #666;
           font-style: italic;
         }
+      }
+    }
+    
+    .video {
+      text-align: center;
+      p {
+        text-align: center;
+        font-family: Arial;
+        font-weight: bolder;
+        font-size: 14px;
+        margin-top:20px;
+        margin-bottom:30px;
       }
     }
     
