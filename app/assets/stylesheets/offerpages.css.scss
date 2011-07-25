@@ -1,24 +1,24 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bourbon';
+
 body.offerpages {
-  
-  background: #FCEDA6 repeat-x scroll center top;
-  background-image: url("/assets/bgr.jpg");
-  
-  .box {
-    //padding: 40px;
-  }
-  
+
+  @include background-image(linear-gradient(#FFF, #FCEDA6 15%));
+
   .container {
     background: #fff;
     font: 14px/21px Georgia, Times, serif;
     color: #000;
     border-top: medium none; 
     border-collapse: collapse; 
-    margin-top: -4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: 1px solid black;
-    border-top: 0;
+    // border-top: 0;
+    @include border-radius(20px);
+
 
     .recommend {
       margin-top:30px;

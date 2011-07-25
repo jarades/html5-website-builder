@@ -18,3 +18,4 @@ gem "mongoid", ">= 2.0.2"
 gem "omniauth", ">= 0.2.6"
 gem "rails-footnotes", ">= 3.7", :group => :development
 gem 'RedCloth'
+gem 'bourbon'
