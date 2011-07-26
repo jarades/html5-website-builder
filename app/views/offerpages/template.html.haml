@@ -19,49 +19,53 @@
       = @offerpage.title
     %body.offerpages
       .container
-        .recommend.twelve.columns.offset-by-two
-          %ul
-            %li
-              %g:plusone{:count => "medium", :size => "small"}
+        .logo.twelve.columns
         %hr/
-        .twelve.columns.box.clearfix.offset-by-two
-          %section
-            - if @offerpage.video
-              .video
-                %script{:type => "text/javascript",
-                        :src  => "#{@offerpage.video}"}
-                %p Press Play to Watch This Video
-            %header
-              %hgroup
-                %h1
+        .row
+          .recommend.two.columns.alpha
+            .plusone
+              %g:plusone{:size => "tall"}
+            .tweet
+              %a.twitter-share-button{"data-count" => "none", 
+                "data-via" => "#{@settings.twitter_account}", :href => "http://twitter.com/share"}
+          .twelve.columns.box.clearfix.omega
+            %section
+              - if @offerpage.video
+                .video
+                  %script{:type => "text/javascript",
+                          :src  => "#{@offerpage.video}"}
+                  %p Press Play to Watch This Video
+              #fb-root
+                %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
+              %header
+                %hgroup
+                  %h1
+                    :textile
+                      #{@offerpage.headline}
+                  %h2
+                    :textile
+                      #{@offerpage.subhead}
+              :textile
+                #{@offerpage.content_block1}
+            - if @offerpage.testimonials
+              .row
+                %section.eight.columns.alpha
                   :textile
-                    #{@offerpage.headline}
-                %h2
-                  :textile
-                    #{@offerpage.subhead}
-            :textile
-              #{@offerpage.content_block1}
-          - if @offerpage.testimonials
-            .row
-              %section.eight.columns.alpha
-                :textile
-                  #{@offerpage.content_block2}
-              %aside.four.columns.omega
+                    #{@offerpage.content_block2}
+                %aside.four.columns.omega
+                  %section
+                    :textile
+                      #{@offerpage.testimonials}
+              - else
                 %section
                   :textile
-                    #{@offerpage.testimonials}
-            - else
-              %section
-                :textile
-                  #{@offerpage.content_block2}
-          %section
-            :textile
-                    #{@offerpage.offer_block}
+                    #{@offerpage.content_block2}
+            %section
+              :textile
+                      #{@offerpage.offer_block}
         %br.clear
+        %hr/
         %footer.twelve.columns
-          %hr/
-          #fb-root
-            %fb:like{:action => "recommend", :send => "true", :show_faces => "false", :width => "450"}
       -# Javascript for Facebook, Twitter, and Google+ sharing
       %script{:type => "text/javascript",
                   :src  => "http://connect.facebook.net/en_US/all.js#appId=176448065752391&xfbml=1"}
