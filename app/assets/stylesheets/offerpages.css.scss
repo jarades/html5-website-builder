@@ -52,7 +52,7 @@ body.offerpages {
     }
   
     section {
-
+      
       a {
           color: #00e;
           font-size: $textsize;
@@ -68,6 +68,7 @@ body.offerpages {
       }
 
       p {
+        padding: 5px;
         text-align: left;
         font-family: $textfont;
         font-size: $textsize;
@@ -94,22 +95,23 @@ body.offerpages {
       }
       
       h1, h2, h3, h4, h5, h6 {
+        padding: 5px;
         font-family: $headlinefont;
         color: inherit;
       }
       h1 {
         font-size: $h1size;
-        line-height: 30px;
+        line-height: 1.2;
         font-weight: bolder;
       }
       h2 {
         font-size: $h1size;
-        line-height: 30px;
+        line-height: 1.2;
         font-weight: bolder;
       }
       h3 {
         font-size: $h1size;
-        line-height: 24px;
+        line-height: 1.2;
         font-weight: bolder;
       }
       blockquote {
@@ -140,10 +142,14 @@ body.offerpages {
     }
     
     aside {
-      background: #FEFEE6;
-      //border: 1px solid black;
-      
+
       section {
+        
+        background: #FEFEE6;
+        border: 1px solid black;
+        margin-right: -100px;
+        padding: 10px;
+        
         h1, h2, h3, h4, h5, h6, p {
           font-family: inherit;
           color: inherit;
