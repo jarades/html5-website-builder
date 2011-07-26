@@ -12,6 +12,8 @@ $h1size: 16pt;
 $h2size: 16pt;
 $h3size: 16pt;
 $textsize: 12pt;
+$sidebarh1size: 14pt;
+$sidebartextsize: 11pt;
 
 body.offerpages {
 
@@ -68,7 +70,8 @@ body.offerpages {
       }
 
       p {
-        padding: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
         text-align: left;
         font-family: $textfont;
         font-size: $textsize;
@@ -95,7 +98,8 @@ body.offerpages {
       }
       
       h1, h2, h3, h4, h5, h6 {
-        padding: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
         font-family: $headlinefont;
         color: inherit;
       }
@@ -144,39 +148,30 @@ body.offerpages {
     aside {
 
       section {
-        
         background: #FEFEE6;
         border: 1px solid black;
         margin-right: -100px;
-        padding: 10px;
+        padding-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
         
-        h1, h2, h3, h4, h5, h6, p {
-          font-family: inherit;
+        h1, h2, h3, h4, h5, h6 {
+          margin-top: 10px;
+          font-family: $headlinefont;
           color: inherit;
+          font-size: $sidebarh1size;
+          line-height: 1.2;
+          font-weight: bolder;
         }
-        h1 {
-          color: #444;
-          border-bottom: 1px solid #ccc;
-          font-size: 14px;
-          padding-bottom: 5px;
-          line-height: 30px;
-        }
-        ul {
-          font-family: inherit;
-          color: inherit;
-          font-size: inherit;
-          line-height: inherit;
+        p {
           margin: 0;
-          padding: 15px;
-          li {
-            a {
-              text-decoration: none;
-              color: #cc0000;
-            }
-            a:hover {
-              background-color: #000;
-            }
-          }
+          font-size: $sidebartextsize;
+        }
+        cite {
+          font-size: $sidebartextsize;
+          margin-top: -10px;
+          margin-left: 10px;
+          font-style: italic;
         }
       }
     }
