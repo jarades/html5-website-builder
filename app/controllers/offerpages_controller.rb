@@ -14,6 +14,7 @@ class OfferpagesController < ApplicationController
     end
 
   end
+  
   def index
     @offerpages = Offerpage.all
     respond_to do |format|
@@ -41,6 +42,17 @@ class OfferpagesController < ApplicationController
 
   def create
     @offerpage = Offerpage.new(params[:offerpage])
+    if params[:format] == 'html'
+      parser = HTMLToTextileParser.new
+      parser.feed(params[:offerpage][:content_block1])
+      @offerpage.content_block1 = parser.to_textile
+      parser.feed(params[:offerpage][:content_block2])
+      @offerpage.content_block2 = parser.to_textile
+      parser.feed(params[:offerpage][:offer_block])
+      @offerpage.offer_block = parser.to_textile
+      parser.feed(params[:offerpage][:testimonials])
+      @offerpage.testimonials = parser.to_textile
+    end
     respond_to do |format|
       if @offerpage.save
         format.html { redirect_to offerpages_path, notice: 'Offerpage was successfully created.' }

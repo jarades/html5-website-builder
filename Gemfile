@@ -19,3 +19,4 @@ gem "omniauth", ">= 0.2.6"
 gem "rails-footnotes", ">= 3.7", :group => :development
 gem 'RedCloth'
 gem 'bourbon'
+gem 'html2textile', :git => 'git://github.com/jystewart/html2textile.git'
