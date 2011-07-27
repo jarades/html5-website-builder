@@ -47,23 +47,18 @@
                       #{@offerpage.subhead}
               :textile
                 #{@offerpage.content_block1}
-            - if @offerpage.testimonials
-              .row
-                %section.eight.columns.alpha
-                  :textile
-                    #{@offerpage.content_block2}
-                %aside.four.columns.omega
-                  %section
-                    :textile
-                      #{@offerpage.testimonials}
-              - else
-                %section
-                  :textile
-                    #{@offerpage.content_block2}
+              %section
+                - if @offerpage.testimonials
+                  %aside
+                    %section
+                      :textile
+                        #{@offerpage.testimonials}
+                :textile
+                  #{@offerpage.content_block2}
             %br.clear
             %section
               :textile
-                      #{@offerpage.offer_block}
+                #{@offerpage.offer_block}
         %br.clear
         %hr/
         %footer.twelve.columns

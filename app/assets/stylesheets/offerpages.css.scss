@@ -167,11 +167,15 @@ body.offerpages {
     }
     
     aside {
-
+      display: inline-block;
+      float: right;
+      vertical-align: top;
+      width: 280px;
+      margin-left: 10px;
+      
       section {
         background: #FEFEE6;
         border: 1px solid black;
-        margin-right: -100px;
         padding-top: 5px;
         padding-left: 5px;
         padding-right: 5px;
