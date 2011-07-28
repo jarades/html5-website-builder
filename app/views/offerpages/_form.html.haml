@@ -7,11 +7,6 @@
           %li= msg
 
   .field
-    = radio_button_tag(:format, "textile")
-    = label_tag(:format_textile, "Textile")
-    = radio_button_tag(:format, "html")
-    = label_tag(:format_html, "Convert HTML to Textile")
-  .field
     = f.label :title
     = f.text_field :title
   .field
@@ -29,6 +24,11 @@
   .field
     = f.label :subhead
     = f.text_area :subhead
+  .field
+    = radio_button_tag(:format, "textile")
+    = label_tag(:format_textile, "Textile")
+    = radio_button_tag(:format, "html")
+    = label_tag(:format_html, "Convert HTML to Textile")
   .field
     = f.label :content_block1
     = f.text_area :content_block1

@@ -62,6 +62,14 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(params[:article])
+    if params[:format] == 'html'
+      p1 = HTMLToTextileParser.new
+      p2 = HTMLToTextileParser.new
+      p1.feed(params[:offerpage][:content])
+      @offerpage.content = p1.to_textile
+      p2.feed(params[:offerpage][:sidebar])
+      @offerpage.sidebar = p2.to_textile
+    end
     respond_to do |format|
       if @article.save
         format.html { redirect_to articles_path, notice: 'Article was successfully created.' }

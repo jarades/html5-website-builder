@@ -25,6 +25,11 @@
     = f.label :subhead
     = f.text_field :subhead
   .field
+    = radio_button_tag(:format, "textile")
+    = label_tag(:format_textile, "Textile")
+    = radio_button_tag(:format, "html")
+    = label_tag(:format_html, "Convert HTML to Textile")    
+  .field
     = f.label :content
     = f.text_area :content
   .field

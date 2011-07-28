@@ -43,15 +43,18 @@ class OfferpagesController < ApplicationController
   def create
     @offerpage = Offerpage.new(params[:offerpage])
     if params[:format] == 'html'
-      parser = HTMLToTextileParser.new
-      parser.feed(params[:offerpage][:content_block1])
-      @offerpage.content_block1 = parser.to_textile
-      parser.feed(params[:offerpage][:content_block2])
-      @offerpage.content_block2 = parser.to_textile
-      parser.feed(params[:offerpage][:offer_block])
-      @offerpage.offer_block = parser.to_textile
-      parser.feed(params[:offerpage][:testimonials])
-      @offerpage.testimonials = parser.to_textile
+      p1 = HTMLToTextileParser.new
+      p2 = HTMLToTextileParser.new
+      p3 = HTMLToTextileParser.new
+      p4 = HTMLToTextileParser.new
+      p1.feed(params[:offerpage][:content_block1])
+      @offerpage.content_block1 = p1.to_textile
+      p2.feed(params[:offerpage][:content_block2])
+      @offerpage.content_block2 = p2.to_textile
+      p3.feed(params[:offerpage][:offer_block])
+      @offerpage.offer_block = p3.to_textile
+      p4.feed(params[:offerpage][:testimonials])
+      @offerpage.testimonials = p4.to_textile
     end
     respond_to do |format|
       if @offerpage.save
