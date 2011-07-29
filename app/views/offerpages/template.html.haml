@@ -19,8 +19,8 @@
       = @offerpage.title
     %body.offerpages
       .container
-        .logo.twelve.columns
-        %hr/
+        .logo.sixteen.columns
+        %br.clear
         .row
           .recommend.two.columns.alpha
             .plusone
@@ -30,7 +30,7 @@
                 "data-via" => "#{@settings.twitter_account}", :href => "http://twitter.com/share"}
           .twelve.columns.box.clearfix.omega
             %section
-              - if @offerpage.video
+              - unless @offerpage.video.blank?
                 .video
                   %script{:type => "text/javascript",
                           :src  => "#{@offerpage.video}"}
