@@ -1,20 +1,24 @@
 Html5WebsiteBuilder::Application.routes.draw do
 
-  resources :offerpages do
-    member do
-      get 'publish'
+  scope "/build" do
+  
+    resources :offerpages do
+      member do
+        get 'publish'
+      end
     end
-  end
 
-  resources :articles do
-    member do
-      get 'publish'
+    resources :articles do
+      member do
+        get 'publish'
+      end
     end
+  
+    resources :settings
+    
+    root :to => "home#index"
+  
   end
-  
-  resources :settings
-  
-  root :to => "home#index"
 
   resources :users, :only => [ :show, :edit, :update ]
 

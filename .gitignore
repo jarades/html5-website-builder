@@ -67,6 +67,5 @@ tmp/*
 config/initializers/omniauth.rb
 
 # app specific
-public/website/*
 sample_copy.textile
 sample_copy2.textile

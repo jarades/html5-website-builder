@@ -89,8 +89,8 @@ class OfferpagesController < ApplicationController
   protected    
     def get_settings
       @settings = Setting.first
-      @docroot_path = "#{Rails.root}/public/website/"
+      @docroot_path = "#{Rails.root}/public/"
       @file_path = "#{@docroot_path}#{@settings.offerpages_directory}/"
-      @url_path = "/website/#{@settings.offerpages_directory}/"
+      @url_path = "/#{@settings.offerpages_directory}/"
     end
 end
