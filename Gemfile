@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 gem 'rails', '3.1.0.rc5'
 group :assets do
-gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'sass-rails', "~> 3.1.0.rc"
   gem 'coffee-rails', "~> 3.1.0.rc"
-gem 'uglifier'
+  gem 'uglifier'
 end
 gem 'jquery-rails'
 gem "haml", ">= 3.1.2"
