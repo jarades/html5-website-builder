@@ -16,9 +16,10 @@ gem "cucumber-rails", ">= 1.0.2", :group => :test
 gem "capybara", ">= 1.0.0", :group => :test
 gem "launchy", ">= 0.4.0", :group => :test
 gem "bson_ext", ">= 1.3.1"
-gem "mongoid", ">= 2.0.2"
+gem "mongoid", "2.0.2"
 gem "omniauth", ">= 0.2.6"
 gem "rails-footnotes", ">= 3.7", :group => :development
+gem "frontend-helpers"
 gem 'RedCloth'
 gem 'bourbon'
 gem 'html2textile', :git => 'git://github.com/jystewart/html2textile.git'
